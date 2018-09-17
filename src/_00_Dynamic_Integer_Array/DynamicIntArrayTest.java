@@ -47,29 +47,29 @@ class DynamicIntArrayTest {
 		assertEquals(3, dia.get(3));
 	}
 	
-	@Test
-	void testRemove() {
-		DynamicIntegerArray dia = new DynamicIntegerArray();
-		dia.add(1);
-		dia.add(2);
-		dia.add(3);
-		
-		dia.remove(1);
-		
-		assertEquals(1, dia.get(0));
-		assertEquals(3, dia.get(1));
-		
-	}
-
-	@Test
-	void testSizeAndClear() {
-		DynamicIntegerArray dia = new DynamicIntegerArray();
-		dia.add(1);
-		dia.add(2);
-		dia.add(3);
-		assertEquals(3, dia.size());
-		dia.clear();
-		assertEquals(0, dia.size());
-	}
-	
+//	@Test
+//	void testRemove() {
+//		DynamicIntegerArray dia = new DynamicIntegerArray();
+//		dia.add(1);
+//		dia.add(2);
+//		dia.add(3);
+//		
+//		dia.remove(1);
+//		
+//		assertEquals(1, dia.get(0));
+//		assertEquals(3, dia.get(1));
+//		
+//	}
+//
+//	@Test
+//	void testSizeAndClear() {
+//		DynamicIntegerArray dia = new DynamicIntegerArray();
+//		dia.add(1);
+//		dia.add(2);
+//		dia.add(3);
+//		assertEquals(3, dia.size());
+//		dia.clear();
+//		assertEquals(0, dia.size());
+//	}
+//	
 }
