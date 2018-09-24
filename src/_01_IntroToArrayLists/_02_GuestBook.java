@@ -9,6 +9,9 @@ public class _02_GuestBook {
 	// Guest #2: Sandy Summers
 	// Guest #3: Greg Ganders
 	// Guest #4: Donny Doners
+	public static void main(String[] args) {
+		
+	}
 	
 	
 	
