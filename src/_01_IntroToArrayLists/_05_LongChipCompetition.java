@@ -16,7 +16,24 @@ public class _05_LongChipCompetition {
 
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		lcc.initializeBeatles();
+		ArrayList <Beatle> beat = lcc.getTheBand();
 		
+		double winner= 0;
+		String winnerPerson ="";
+		for (int i = 0; i < beat.size() ; i++) {
+			Beatle t= beat.get(i);
+			ArrayList <Chip> n=t.getChips();
+			for (int j = 0; j < n.size(); j++) {
+				if(winner<n.get(j).getLength()) {
+					winner=n.get(j).getLength();
+					winnerPerson=t.getName();
+				}
+				else {}
+				
+			}
+			}
+		System.out.println(winnerPerson);
 	}
 	
 	private void initializeBeatles() {
