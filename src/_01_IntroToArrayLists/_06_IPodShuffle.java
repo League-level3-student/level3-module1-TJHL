@@ -18,17 +18,13 @@ public class _06_IPodShuffle implements ActionListener{
 		
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
-		JButton pause = new JButton();
+		JButton play = new JButton();
 		JLabel name = new JLabel();
-		JButton next = new JButton();
-		JButton shuffle = new JButton();
 		
-		String currentSong = null;
-		ArrayList <String> songList = new ArrayList <String>();
+		ArrayList <Song> songList = new ArrayList <Song>();
 		
 	public static void main(String[] args) {
 		_06_IPodShuffle a = new _06_IPodShuffle();
-		
 		
 	}
 	
@@ -36,20 +32,21 @@ public class _06_IPodShuffle implements ActionListener{
 		// 1. Use the Song class the play the demo.mp3 file.
 	
 		frame.add(panel);
-		panel.add(next);
-		next.setText("Next");
 		panel.add(name);
 		name.setText("no song selected");
-		panel.add(pause);
-		pause.setText("Pause");
-		panel.add(shuffle);
-		shuffle.setText("Shuffle");
+		panel.add(play);
+		play.setText("Play");
+		play.addActionListener(this);
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 		
 		
-		songList.add("");
+		songList.add(new Song ("demo.mp3"));
+		songList.add(new Song ("Joel Nielsen - BMS - On a Rail (old).mp3"));
+		songList.add(new Song ("Joel Nielsen - Black Mesa Soundtrack - Surface Tension Uncut.mp3"));
+		songList.add(new Song ("JoelNielsen.BeingHuman.mp3"));
+		
 				
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
@@ -61,54 +58,17 @@ public class _06_IPodShuffle implements ActionListener{
 		
 	}
 		public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==next) {
-			if(currentSong==null) {
-					
-			}
-			
+			if(e.getSource()==play) {
+		for (int i = 0; i < songList.size(); i++) {
+			songList.get(i).stop();
+		}
+		Random b = new Random();
+		int c = b.nextInt(songList.size());
+		name.setText(songList.get(c).toString());
+		songList.get(c).play();
+		
+			}	
 		}
 		
-		if(e.getSource()==pause) {
-			if(currentSong==null) {
-				
-			}
-			else {
-			
-			}
-		}
-			
-		if(e.getSource()==shuffle) {
-			songShuffle();
-			playSong();
-		}
-		
-		
-		
-	}
-
-	void playSong() {
-		Song a = new Song("demo.mp3");
-		a.play();
-		new _06_IPodShuffle();
-		
-	}
-	void songShuffle() {
-		
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
