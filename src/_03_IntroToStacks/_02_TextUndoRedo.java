@@ -47,14 +47,15 @@ public class _02_TextUndoRedo implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
 			String s = label.getText();
-			char echo = s.charAt(s.length()-1);
-			textDelete.push(echo);
+			char deletedChar = s.charAt(s.length()-1);
+			textDelete.push(deletedChar);
 			String serria = s.substring(0, s.length()-1);
 				label.setText(serria);
 				
 			}
-		if(e.getKeyCode()==KeyEvent.VK_DOWN) {
-			
+		else if(e.getKeyCode()==KeyEvent.VK_DOWN) {
+			char returned=textDelete.pop();
+			label.setText(label.getText()+returned);
 		}
 		else {
 			label.setText(label.getText()+e.getKeyChar());
@@ -63,6 +64,5 @@ public class _02_TextUndoRedo implements KeyListener {
 		
 	public void keyReleased(KeyEvent e) {}
 	public void keyTyped(KeyEvent e) {}
-	
 	
 }
