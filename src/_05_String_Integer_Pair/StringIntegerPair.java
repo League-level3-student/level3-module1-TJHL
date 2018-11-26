@@ -1,5 +1,7 @@
 package _05_String_Integer_Pair;
 
+import javax.xml.crypto.KeySelector;
+
 public class StringIntegerPair {
 	//1. create a private array of Strings called keys. Don't initialize it.
 	private String [] keys;
@@ -18,7 +20,7 @@ public class StringIntegerPair {
 		//   passed in value and return from the method.
 		for (int i = 0; i < keys.length; i++) {
 			if(keys[i].equals(key)) {
-				keys[i]=key;
+				values[i]=value;
 				return;
 			}
 		}
@@ -27,29 +29,41 @@ public class StringIntegerPair {
 		//C. create an integer array that is one element longer than values
 		Integer [] s = new Integer [values.length+1];
 		//D. set the last element of the new String array to the passed in key
-		j[j.length]=key;
+		j[j.length-1]=key;
 		//E. set the last element of the new int array to the passed in value
-		s[s.length]=value;
+		s[s.length-1]=value;
 		//F. iterate through the keys and values and copy the elements to the new arrays
-		for (int i = 0; i < j.length; i++) {
+		for (int i = 0; i < keys.length; i++) {
 			j[i]=keys[i];
 		}
-		for (int i = 0; i < s.length; i++) {
+		for (int i = 0; i < values.length; i++) {
 			s[i]=values[i];
 		}
 		//G. Set the keys and values arrays equal to the new arrays created in steps B and C.
+		keys=j;
+		values=s;
 	}
 	
 	//5. Complete the method so it returns the value located at the passed in key.
 	//   If the key does not exist, return Integer.MIN_VALUE.
 	public int get(String key) {
-		return 0;
+		for (int i = 0; i < keys.length; i++) {
+			if(keys[i].equals(key)) {
+				return values[i];
+				
+			}
+		}
+		return Integer.MIN_VALUE;	
 	}
 	
 	//6. Complete the containsKey method so that it returns true if the
 	//   passed in keys is contained in the keys array
 	public boolean containsKey(String key) {
-		
+		for (int i = 0; i < keys.length; i++) {
+			if(key==keys[i]) {
+			return true;
+			}
+		}
 		return false;
 	}
 	
@@ -62,7 +76,8 @@ public class StringIntegerPair {
 	
 	//8. Complete the getKeysMethod so it returns the keys as an array
 	public String[] getKeys() {
-		return null;
+		
+		return keys;
 	}
 	
 	//9. Complete the getKeysMethod so it returns the values as an array
