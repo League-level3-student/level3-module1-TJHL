@@ -6,11 +6,11 @@ public class StringIntegerPair {
 	//1. create a private array of Strings called keys. Don't initialize it.
 	private String [] keys;
 	//2. create a private array of integers called values.
-	private Integer[] values;
+	private int[] values;
 	StringIntegerPair(){
 		//3. initialize both member arrays to a length of 0
 		keys = new String [0];
-		values = new Integer [0];
+		values = new int [0];
 	}
 	
 	// 4. Complete the steps in the put method
@@ -27,7 +27,7 @@ public class StringIntegerPair {
 		//B. create a String array that is one element longer than the keys
 		String [] j = new String [keys.length+1];
 		//C. create an integer array that is one element longer than values
-		Integer [] s = new Integer [values.length+1];
+		int [] s = new int [values.length+1];
 		//D. set the last element of the new String array to the passed in key
 		j[j.length-1]=key;
 		//E. set the last element of the new int array to the passed in value
@@ -62,7 +62,7 @@ public class StringIntegerPair {
 		for (int i = 0; i < keys.length; i++) {
 			if(key==keys[i]) {
 			return true;
-			}
+			}	
 		}
 		return false;
 	}
@@ -70,7 +70,11 @@ public class StringIntegerPair {
 	//7. Complete the containsValue method so that it returns true if the
 	//   passed in value is contained in the values array
 	public boolean containsValue(int value) {
-		
+		for (int i = 0; i < values.length; i++) {
+			if(value==values[i]) {
+			return true;
+			}
+		}
 		return false;
 	}
 	
@@ -82,6 +86,7 @@ public class StringIntegerPair {
 	
 	//9. Complete the getKeysMethod so it returns the values as an array
 	public int[] getValues() {
-		return null;
+		
+		return values;
 	}
 }

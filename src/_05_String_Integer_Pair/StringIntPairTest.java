@@ -28,6 +28,7 @@ class StringIntPairTest {
 		sip.put("THREE", 3);
 		sip.put("FOUR", 4);
 		
+		
 		assertTrue(sip.containsKey("ONE"));
 		assertTrue(sip.containsKey("TWO"));
 		assertTrue(sip.containsKey("THREE"));
