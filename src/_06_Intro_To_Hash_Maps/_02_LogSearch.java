@@ -34,6 +34,7 @@ public class _02_LogSearch implements ActionListener{
 		panel.add(add);
 		panel.add(search);
 		panel.add(view);
+		panel.add(remove);
 		
 		frame.pack();
 		frame.setVisible(true);
@@ -75,15 +76,16 @@ public class _02_LogSearch implements ActionListener{
 	 */ 		
 			if(e.getSource()== view) {
 				String display= "";
-				Integer greatestInteger;
-				for (int i = 0; i < jf.size(); i++) {
-					if(jf.get(i)>greatestInteger) {
-						
+				Integer greatestInteger=0;
+				for (Integer key: jf.keySet()) {
+					if(key+1 >greatestInteger) {
+					greatestInteger=key+1;
 					}
-					
 				}
 				for (int i = 0; i <greatestInteger ; i++) {
-					display=display+"\nID: "+i+"    Name:"+jf.get(i);
+					if(jf.get(i)!= null) {
+					display=display+"ID: "+i+"    Name:"+jf.get(i)+"\n";
+					}
 				}
 				JOptionPane.showMessageDialog(null, display);
 			}
@@ -95,7 +97,17 @@ public class _02_LogSearch implements ActionListener{
 	 */
 		
 			if(e.getSource()== remove) {
+				String idToRemoveString=JOptionPane.showInputDialog("Input an ID to remove");
+				Integer idToRemove =Integer.parseInt(idToRemoveString);
+				if(jf.containsKey(idToRemove)) {
+					jf.remove(idToRemove);
+					JOptionPane.showMessageDialog(null, "ID "+idToRemove+" Removed");
+				}
 				
+				else {
+					JOptionPane.showMessageDialog(null, "Error 404\nID: "+idToRemove+" not found");
+					
+				}
 			}
 		
 		}
