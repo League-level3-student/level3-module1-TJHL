@@ -50,14 +50,15 @@ class Cow {
 		
 			HashMap<String, String> translator = new  HashMap<String, String>();
 			
-			translator.put("Alpha", "a");
-			translator.put("Bravo", "b");
-			translator.put("Charlie", "c");
-			translator.put("Delta", "d");
-			translator.put("Echo", "e");
+			translator.put("A", "Alpha");
+			translator.put("B", "Bravo");
+			translator.put("C", "Charlie");
+			translator.put("D", "Delta");
+			translator.put("E", "Echo");
 			
 			for (int i = 0; i < translator.size(); i++) {
-				System.out.println(translator.+" , "++"\n");
+				System.out.println(translator.keySet().toArray()[i]  +", "+ translator.get(translator.keySet().toArray()[i]) );
+				
 			}
 			
 			
